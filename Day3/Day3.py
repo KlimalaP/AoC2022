@@ -9,8 +9,8 @@ with open('input.txt', 'r') as f:
     for line in f:
         lhs = line[:len(line)//2]
         rhs = line[len(line)//2:]
-        for char in lhs:
-            pattern = re.compile(char)
+        for letter in lhs:
+            pattern = re.compile(letter)
             match = pattern.search(rhs)
             if match:
                 arr.append(match.group())
@@ -18,14 +18,8 @@ with open('input.txt', 'r') as f:
 
 for i in arr:
     if i.islower():
-        try:
-            score = score + alphabet_lower_case.get(i)
-        except TypeError:
-            print("NoneType")
+        score = score + alphabet_lower_case.get(i)
     else:
-        try:
-            score = score + alphabet_higher_case.get(i)
-        except TypeError:
-            print("NoneType")
+        score = score + alphabet_higher_case.get(i)
 
 print(score)
